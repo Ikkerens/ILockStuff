@@ -18,9 +18,7 @@ public class ILSPlugin extends MBServerPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        // Load the config
-        final Config config = this.getConfig();
-        this.saveConfig(); // Create the file
+        this.saveConfig(); // Create the config
 
         // Load the database
         this.database = this.getServer().getConfigurationManager().load( this, Database.class );
