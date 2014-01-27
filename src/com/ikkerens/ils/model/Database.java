@@ -28,6 +28,11 @@ public class Database {
         this.locatedLocks.put( lock.getLocation(), lock );
     }
 
+    public void removeLock( final Lock lock ) {
+        this.locks.remove( lock );
+        this.locatedLocks.remove( lock.getLocation() );
+    }
+
     public Lock getLock( final Location location ) {
         return this.locatedLocks.get( location );
     }

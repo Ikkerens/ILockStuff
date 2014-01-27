@@ -29,7 +29,12 @@ public class AddMember extends Command implements InteractionHandler {
     public void onInteract( final BlockInteractEvent event ) {
         final Lock lock = this.plugin.getDatabase().getLock( event.getLocation() );
 
-        if ( !lock.isOwner( event.getPlayer().getLoginName() ) ) {
+        if ( lock == null ) {
+            event.getPlayer().sendMessage( "That block is not locked!" );
+            return;
+        }
+
+        if ( !lock.isOwner( event.getPlayer().getLoginName() ) && !event.getPlayer().hasPermission( "ikkerens.ilockstuff.admin" ) ) {
             event.getPlayer().sendMessage( "You do not own this lock!" );
             return;
         }
@@ -38,7 +43,7 @@ public class AddMember extends Command implements InteractionHandler {
 
         if ( memName != null ) {
             lock.addMember( memName );
-            event.getPlayer().sendMessage( String.format( "Player %s has been added as a member to this lock." ) );
+            event.getPlayer().sendMessage( String.format( "Player %s has been added as a member to this lock.", memName ) );
         } else
             event.getPlayer().sendMessage( "Oops! Something went wrong!" );
     }

@@ -6,7 +6,8 @@ public enum CommandHandlers {
     HELP( new Help() ),
     LOCK( new LockCmd() ),
     ADDMEMBER( new AddMember() ),
-    REMOVEMEMBER( new RemoveMember() );
+    REMOVEMEMBER( new RemoveMember() ),
+    UNLOCK( new Unlock() );
 
     private Command instance;
 
