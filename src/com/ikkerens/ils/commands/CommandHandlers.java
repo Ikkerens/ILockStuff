@@ -4,7 +4,8 @@ import com.ikkerens.ils.ILSPlugin;
 
 public enum CommandHandlers {
     HELP( new Help() ),
-    LOCK( new LockCmd() );
+    LOCK( new LockCmd() ),
+    ADDMEMBER( new AddMember() );
 
     private Command instance;
 

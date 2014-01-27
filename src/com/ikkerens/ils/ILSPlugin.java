@@ -39,12 +39,20 @@ public class ILSPlugin extends MBServerPlugin implements Listener {
         pm.registerCommand( "lock", mc ); // Seperated because of its slightly different functionality.
     }
 
+    @Override
+    public void onDisable() {
+        this.save();
+    }
+
     @EventHandler
     public void onSave( final WorldSaveEvent event ) {
-        if ( ( event == null ) || ( event.getWorld() == this.getServer().getMainWorld() ) ) {
-            this.saveConfig();
-            this.getServer().getConfigurationManager().save( this, this.database );
-        }
+        if ( ( event == null ) || ( event.getWorld() == this.getServer().getMainWorld() ) )
+            this.save();
+    }
+
+    private void save() {
+        this.saveConfig();
+        this.getServer().getConfigurationManager().save( this, this.database );
     }
 
     public Database getDatabase() {

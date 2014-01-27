@@ -21,8 +21,15 @@ public class Database {
     }
 
     public void addLock( final Lock lock ) {
+        if ( this.locks.contains( lock ) )
+            return;
+
         this.locks.add( lock );
         this.locatedLocks.put( lock.getLocation(), lock );
+    }
+
+    public Lock getLock( final Location location ) {
+        return this.locatedLocks.get( location );
     }
 
     public boolean canAccess( final Player player, final Location location ) {

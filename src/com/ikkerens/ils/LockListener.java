@@ -21,6 +21,7 @@ public class LockListener implements Listener {
 
         if ( player.getMetaData( ILSPlugin.AWAITING_INTERACT_KEY, null ) != null ) {
             ( (InteractionHandler) player.getMetaData( ILSPlugin.AWAITING_INTERACT_KEY, null ) ).onInteract( event );
+            player.removeMetaData( ILSPlugin.AWAITING_INTERACT_KEY );
             event.setCancelled( true );
         } else // See if it's locked
         if ( !this.db.canAccess( player, event.getLocation() ) && !player.hasPermission( "ikkerens.ilockstuff.admin" ) ) {

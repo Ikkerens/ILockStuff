@@ -23,10 +23,26 @@ public class Lock {
         return this.location;
     }
 
+    public boolean isOwner( final String player ) {
+        return this.owner.equalsIgnoreCase( player );
+    }
+
+    public void addMember( final String memberName ) {
+        this.members.add( memberName.toLowerCase() );
+    }
+
     public boolean canAccess( final String player ) {
-        if ( this.owner.equalsIgnoreCase( player ) )
+        if ( this.isOwner( player ) )
             return true;
         else
-            return this.members.contains( player );
+            return this.members.contains( player.toLowerCase() );
+    }
+
+    @Override
+    public boolean equals( final Object other ) {
+        if ( ( other == null ) || !( other instanceof Lock ) )
+            return false;
+
+        return this.location.equals( ( (Lock) other ).getLocation() );
     }
 }
