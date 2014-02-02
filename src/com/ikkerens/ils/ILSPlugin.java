@@ -44,9 +44,10 @@ public class ILSPlugin extends MBServerPlugin implements Listener {
 
     @EventHandler
     public void onSave( final WorldSaveEvent event ) {
-        if ( ( event == null ) || ( event.getWorld() == this.getServer().getMainWorld() ) )
+        if ( ( event == null ) || ( event.getWorld() == this.getServer().getMainWorld() ) ) {
             this.saveConfig();
             this.getServer().getConfigurationManager().save( this, this.database );
+        }
     }
 
     public Database getDatabase() {
