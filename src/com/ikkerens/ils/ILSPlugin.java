@@ -3,7 +3,8 @@ package com.ikkerens.ils;
 import com.ikkerens.ils.commands.CommandHandlers;
 import com.ikkerens.ils.commands.MainCommand;
 import com.ikkerens.ils.model.Database;
-
+import com.ikkerens.ils.model.cost.MoneyPlugin;
+import com.ikkerens.ils.model.cost.MoneyPlugins;
 import com.mbserver.api.MBServerPlugin;
 import com.mbserver.api.Manifest;
 import com.mbserver.api.PluginManager;
@@ -15,10 +16,19 @@ import com.mbserver.api.events.WorldSaveEvent;
 public class ILSPlugin extends MBServerPlugin implements Listener {
     public static final String AWAITING_INTERACT_KEY = "ILockStuff.WaitingForInteract";
     private Database           database;
+    private MoneyPlugin        moneyPlugin;
 
     @Override
     public void onEnable() {
+        final Config config = this.getConfig();
         this.saveConfig(); // Create the config
+
+        if ( config.getMoneyCost() > 0 ) {
+            this.moneyPlugin = MoneyPlugins.getMoneyPlugin( this.getServer() );
+
+            if ( this.moneyPlugin == null )
+                this.getLogger().warning( "[ILS] No useable money plugin found, not charging players money for locks!" );
+        }
 
         // Load the database
         this.database = this.getServer().getConfigurationManager().load( this, Database.class );
@@ -52,5 +62,9 @@ public class ILSPlugin extends MBServerPlugin implements Listener {
 
     public Database getDatabase() {
         return this.database;
+    }
+
+    public MoneyPlugin getMoneyPlugin() {
+        return this.moneyPlugin;
     }
 }
