@@ -1,7 +1,6 @@
 package com.ikkerens.ils.commands;
 
 import com.ikkerens.ils.ILSPlugin;
-
 import com.mbserver.api.game.Player;
 
 public abstract class Command {

@@ -2,7 +2,6 @@ package com.ikkerens.ils.commands;
 
 import com.ikkerens.ils.ILSPlugin;
 import com.ikkerens.ils.model.Lock;
-
 import com.mbserver.api.events.BlockInteractEvent;
 import com.mbserver.api.game.Player;
 
