@@ -17,13 +17,7 @@ public class MBEssentials extends MoneyPlugin {
 
     @Override
     public boolean deduct( final Player player, final int amount ) {
-        final MoneyAccount acc = new MoneyAccount( player );
-
-        if ( this.mgr.getMoney( acc ) >= amount )
-            return false;
-
-        this.mgr.removeMoney( acc, amount );
-        return true;
+        return this.mgr.removeMoney( new MoneyAccount( player ), amount ) == 0;
     }
 
 }
