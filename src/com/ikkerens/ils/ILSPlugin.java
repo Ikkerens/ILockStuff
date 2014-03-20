@@ -5,6 +5,7 @@ import com.ikkerens.ils.commands.MainCommand;
 import com.ikkerens.ils.model.Database;
 import com.ikkerens.ils.model.cost.MoneyPlugin;
 import com.ikkerens.ils.model.cost.MoneyPlugins;
+
 import com.mbserver.api.MBServerPlugin;
 import com.mbserver.api.Manifest;
 import com.mbserver.api.PluginManager;

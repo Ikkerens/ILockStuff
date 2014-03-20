@@ -2,6 +2,7 @@ package com.ikkerens.ils;
 
 import com.ikkerens.ils.commands.InteractionHandler;
 import com.ikkerens.ils.model.Database;
+
 import com.mbserver.api.events.BlockInteractEvent;
 import com.mbserver.api.events.EventHandler;
 import com.mbserver.api.events.Listener;
