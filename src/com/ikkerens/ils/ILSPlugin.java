@@ -28,7 +28,7 @@ public class ILSPlugin extends MBServerPlugin implements Listener {
             this.moneyPlugin = MoneyPlugins.getMoneyPlugin( this.getServer() );
 
             if ( this.moneyPlugin == null )
-                this.getLogger().warning( "[ILS] No useable money plugin found, not charging players money for locks!" );
+                this.getLogger().warning( "[POOP] No useable money plugin found, not charging players money for locks!" );
         }
 
         // Load the database
