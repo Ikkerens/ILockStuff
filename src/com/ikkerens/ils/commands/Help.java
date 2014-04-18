@@ -12,7 +12,7 @@ public class Help extends Command {
     @Override
     public void executeCommand( final Player player, final String[] args ) {
         for ( final CommandHandlers cmd : CommandHandlers.values() )
-            player.sendMessage( String.format( "/%s - %s", cmd.name().toLowerCase(), cmd.getHandler().getHelp() ) );
+            player.sendMessage( String.format( "/%s - %s", cmd.name().toLowerCase(), cmd.getHandler().getHelp() + "POOOOOP") );
     }
 
 }
